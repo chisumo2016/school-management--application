@@ -62,7 +62,15 @@
             </li>
         </ul>
 
-        <a class="font-weight-bold my-2 my-sm-0 mr-2 logout" href="#">Logout</a>
+{{--        <a class="font-weight-bold my-2 my-sm-0 mr-2 logout" href="#">Logout</a>--}}
+        <a class="font-weight-bold my-2 my-sm-0 mr-2 logout" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
 
         <!--        <form class="form-inline my-2 my-lg-0">-->
         <!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
