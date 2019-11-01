@@ -28,10 +28,10 @@
             <form action="{{ route('login') }}"   method="post" enctype="multipart/form-data" autocomplete="off" class="form-inline" >
                 @csrf
                 <div class="form-group col-12 mb-3">
-                    <label for="email" class="col-sm-3 col-form-label text-right">Email Address</label>
-                    <input type="text" name="email" placeholder="Email Address" class="form-control col-sm-9 @error('email') is-invalid @enderror" id="email" minlength="8" required>
+                    <label for="mobile" class="col-sm-3 col-form-label text-right">Mobile No:</label>
+                    <input type="text" name="mobile" placeholder="mobile" class="form-control col-sm-9 @error('mobile') is-invalid @enderror" id="email" minlength="8" required>
                     <span class="text-danger"></span>
-                    @error('email')
+                    @error('mobile')
                     <span class="invalid-feedback" role="alert">
                        <strong>{{ $message }}</strong>
                        </span>
