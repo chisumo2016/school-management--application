@@ -65,6 +65,8 @@
                                 <li><a href="{{ route('user-register') }}" class="dropdown-item">Add user</a></li>
                                 <li><a href="{{ route('user-list') }}" class="dropdown-item">User List</a></li>
                             @endif
+                            {{--  user profile    --}}
+                             <li><a href="{{ route('user-profile', ['userId'=>Auth::user()->id]) }}" class="dropdown-item">profile</a></li>
 
                         </ul>
                     </li>
@@ -83,9 +85,6 @@
             @csrf
         </form>
 
-        <!--        <form class="form-inline my-2 my-lg-0">-->
-        <!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-        <!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-        <!--        </form>-->
+
     </div>
 </nav>
