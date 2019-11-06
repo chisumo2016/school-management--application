@@ -51,6 +51,16 @@ Route::post('user-info-update',[
     'as'     => 'user-info-update'
 ])->middleware('auth');
 
+Route::get('change-user-avatar/{id}',[
+    'uses' => 'UserRegistrationController@changeUserAvatar',
+    'as'     => 'change-user-avatar'
+])->middleware('auth');
+
+
+Route::post('/update-user-photo',[
+    'uses' => 'UserRegistrationController@updateUserPhoto',
+    'as'     => 'update-user-photo'
+])->middleware('auth');
 
 
 Auth::routes();

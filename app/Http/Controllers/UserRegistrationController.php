@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Image;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -109,6 +110,32 @@ class UserRegistrationController extends Controller
         $user->save();
 
         return  redirect("/user-profile/$request->user_id")->with('message','Information Successfully Update ');
+
+    }
+
+    public  function  changeUserAvatar($id)
+    {
+        $user = User::find($id);
+        return view('admin.users.change-user-avatar',compact('user'));
+    }
+
+    public  function  updateUserPhoto(Request  $request)
+    {
+        $user = User::find($request->user_id);
+
+        $file = $request->file('avatar');
+        $imageName = $file->getClientOriginalName();
+        $directory = 'admin/assets/avatar/';
+        $imageUrl = $directory.$imageName;
+        //$file->move($directory,$imageUrl);
+
+        Image::make($file)->resize(300,300)->save( $imageUrl);
+
+        $user->avatar = $imageUrl;
+        $user -> save();
+
+        return redirect('/user-profile/$request->user_id')
+            ->with('message','Photo update successfully');
 
     }
 

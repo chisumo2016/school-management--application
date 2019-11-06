@@ -12,8 +12,6 @@
                 </div>
                 <form method="POST" action="{{ route('user-info-update') }}" enctype="multipart/form-data" autocomplete="off" class="form-inline" >
                     @csrf
-
-
                     <div class="form-group col-12 mb-3">
                         <label for="name" class="col-sm-3 col-form-label text-right">Name</label>
                         <input id="name" type="text" class="col-sm-9 form-control @error('name') is-invalid @enderror "   name="name" value="{{ $user->name }}"  placeholder="Name" required autofocus>

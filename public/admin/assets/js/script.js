@@ -67,3 +67,25 @@ $(document).ready(function() {
     });
 } );
 //Owl Carousel Configuration End
+
+//Image show Before upload start
+$(document).ready(function(){
+    $('input[type="file"]').change(function(e) {
+        var filename = e.target.files[0].name;
+        if (filename) {
+            $('#fileLabel').html(filename);
+        }
+    });
+});
+
+function showImage(data, imgId) {
+   if (data.files && data.files[0]) {
+       var obj = new FileReader();
+
+       obj.onload  = function (d) {
+           var image  = document.getElementById(imgId);
+           image.src  = d.target.result;
+       };
+       obj.readAsDataURL(data.files[0]);
+   }
+}
