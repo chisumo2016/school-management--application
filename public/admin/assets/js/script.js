@@ -65,7 +65,7 @@ $(document).ready(function() {
             }
         }
     });
-} );
+});
 //Owl Carousel Configuration End
 
 //Image show Before upload start

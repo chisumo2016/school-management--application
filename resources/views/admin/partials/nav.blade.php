@@ -1,5 +1,7 @@
 <!--User Avatar Start-->
-<img class="avatar" src="{{ asset('admin/assets/images/avatar.png') }}" alt="Avatar">
+<img class="avatar" src="@if(Auth::user()->avatar) {{ asset('/') . '/'  . $user->avatar }} @else {{ asset('/') }}/admin/assets/images/avatar.png  @endif" alt="Avatar">
+
+
 <!--User Avatar Start-->
 
 <!--Main Menu Start-->

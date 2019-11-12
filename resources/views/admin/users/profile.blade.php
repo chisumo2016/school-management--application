@@ -15,6 +15,15 @@
                     </div>
                 @endif
 
+                   @if(Session::get('error_message'))
+                       <div class="alert alert-warning alert-danger fade show" role="alert">
+                           <strong>Error !</strong> {{ Session::get('error_message') }}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                           </button>
+                       </div>
+                   @endif
+
 
 {{--                <form class="form-inline my-2 my-lg-0">--}}
 {{--                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--}}
@@ -35,7 +44,7 @@
                             <td>
                                 <a href="{{ route('change-user-info', ['id'=>$user->id]) }}" class="btn btn-sm btn-dark">Change Info</a>
                                 <a href="{{ route('change-user-avatar', ['id'=>$user->id]) }}" class="btn btn-sm btn-info">Change Photo</a>
-                                <a href="#" class="btn btn-sm btn-danger">Change Password</a>
+                                <a href="{{ route('change-user-password',['id'=>$user->id]) }}" class="btn btn-sm btn-danger">Change Password</a>
                             </td>
                         </tr>
                         </thead>

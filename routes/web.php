@@ -62,6 +62,24 @@ Route::post('/update-user-photo',[
     'as'     => 'update-user-photo'
 ])->middleware('auth');
 
+Route::get('/change-user-password/{id}',[
+    'uses' => 'UserRegistrationController@changeUserPassword',
+    'as'     => 'change-user-password'
+])->middleware('auth');
+
+Route::post('/user-password-update',[
+    'uses' => 'UserRegistrationController@userPasswordUpdate',
+    'as'     => 'user-password-update'
+])->middleware('auth');
+
+
+
+
+
+
+
+
+
 
 Auth::routes();
 

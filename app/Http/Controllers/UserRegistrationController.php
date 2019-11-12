@@ -139,4 +139,30 @@ class UserRegistrationController extends Controller
 
     }
 
+    public function changeUserPassword($id)
+    {
+        $user = User::find($id);
+        return view('admin.users.change-user-password',compact('user'));
+    }
+
+    public function userPasswordUpdate(Request $request)
+    {
+        $this->validate($request,[
+            'new_password'  => 'required|string|min:8'
+        ]);
+       $oldPassword = $request->password;
+       $user = User::find($request->user_id);
+
+       if (Hash::check($oldPassword, $user->password)){
+           $user->password = Hash::make($request->new_password);
+           $user->save();
+
+           return redirect('/user-profile/$request->user_id')
+               ->with('message','Password  updated successfully');
+       }else{
+            return  back()->with('error_message','Old Password Doesnt Match, Please Try Again ......') ;
+       }
+    }
+
+
 }
