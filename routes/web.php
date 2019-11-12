@@ -74,13 +74,7 @@ Route::post('/user-password-update',[
 
 
 
-
-
-
-
-
-
-
-Auth::routes();
+Auth::routes(['register' => false]);
+//https://laravel.com/docs/6.x/authentication#included-routing
 
 Route::get('/home', 'HomeController@index')->name('home');
