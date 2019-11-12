@@ -5,6 +5,7 @@ namespace App\Providers;
 
 use App\HeaderFooter;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use View;
 
@@ -33,12 +34,15 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::composer('admin.partials.header', function ($view){
-            $header = HeaderFooter::find(2);
+            //$header = HeaderFooter::find(2);
+            $header = DB::table('header_footers')->first();
+            //$header = HeaderFooter::find(2);
             $view->with('header',$header);
         });
 
         View::composer('admin.partials.footer', function ($view){
-            $footer = HeaderFooter::find(2);
+           // $footer = HeaderFooter::find(2);
+            $footer  = DB::table('header_footers')->first();
             $view->with('footer',$footer);
         });
     }

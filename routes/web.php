@@ -86,6 +86,19 @@ Route::post('/header-and-footer-save',[
     'as'     => 'header-and-footer-save'
 ]);
 
+Route::get('/manager-header-footer/{id}',[
+
+    'uses' => 'HomePageController@managerHeaderFooter',
+    'as'     => 'manager-header-footer'
+]);
+
+Route::post('/header-and-footer-update',[
+
+    'uses' => 'HomePageController@headerAndFooterUpdate',
+    'as'     => 'header-and-footer-update'
+]);
+
+
 
 
 

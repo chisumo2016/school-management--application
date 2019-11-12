@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.html"><span class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('home') }}"><span class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,8 +63,12 @@
                     <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">General</a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('add-header-footer') }}" class="dropdown-item">Add Header & Footer</a></li>
-                            <li><a href="" class="dropdown-item">Batch List</a></li>
+                            @if(!isset($header))
+                                <li><a href="{{ route('add-header-footer') }}" class="dropdown-item">Add Header & Footer</a></li>
+                            @endif
+                            @if(isset($header))
+                                <li><a href="{{ route('manager-header-footer',['id' => $header->id]) }}" class="dropdown-item">Manage Header & Footer</a></li>
+                             @endif
                         </ul>
                     </li>
 
