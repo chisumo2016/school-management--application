@@ -73,6 +73,24 @@ Route::post('/user-password-update',[
 ])->middleware('auth');
 
 
+//General Section
+Route::get('/add-header-footer',[
+
+    'uses' => 'HomePageController@addHeaderFooterForm',
+    'as'     => 'add-header-footer'
+]);
+
+Route::post('/header-and-footer-save',[
+
+    'uses' => 'HomePageController@headerAndFooterSave',
+    'as'     => 'header-and-footer-save'
+]);
+
+
+
+
+
+
 
 Auth::routes(['register' => false]);
 //https://laravel.com/docs/6.x/authentication#included-routing

@@ -61,6 +61,14 @@
                     </li>
 
                     <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">General</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('add-header-footer') }}" class="dropdown-item">Add Header & Footer</a></li>
+                            <li><a href="" class="dropdown-item">Batch List</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">User</a>
                         <ul class="dropdown-menu">
                             @if(Auth::user()->role =='Admin')

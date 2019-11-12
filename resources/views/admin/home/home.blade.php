@@ -1,6 +1,25 @@
 @extends('admin.master')
 
 @section('main-content')
+
+    @if(Session::get('message'))
+        <div class="alert alert-warning alert-success " role="alert">
+            <strong>Message !</strong> {{ Session::get('message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    @if(Session::get('error_message'))
+        <div class="alert alert-warning alert-danger fade show" role="alert">
+            <strong>Error !</strong> {{ Session::get('error_message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     <section class="container-fluid">
         <div class="row">
             <div class="col-12 pl-0 pr-0">
