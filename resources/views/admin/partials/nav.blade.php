@@ -61,6 +61,14 @@
                     </li>
 
                     <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Slider</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('add-slider') }}" class="dropdown-item">Add Slider</a></li>
+                            <li><a href="#" class="dropdown-item">Manage Slide</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">General</a>
                         <ul class="dropdown-menu">
                             @if(!isset($header))

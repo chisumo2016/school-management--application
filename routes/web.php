@@ -98,6 +98,22 @@ Route::post('/header-and-footer-update',[
     'as'     => 'header-and-footer-update'
 ]);
 
+//SLIDER SECTION
+
+Route::get('/add-slider',[
+
+    'uses' => 'SliderController@addslider',
+    'as'     => 'add-slider'
+]);
+
+Route::post('/upload-slide',[
+
+    'uses' => 'SliderController@uploadSlide',
+    'as'     => 'upload-slide'
+]);
+
+
+
 
 
 
