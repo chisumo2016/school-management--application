@@ -155,6 +155,64 @@ Route::get('/slide-delete{id}',[
     'uses' => 'SliderController@slideDelete',
     'as'     => 'slide-delete'
 ]);
+//==============================================
+
+//Schools Management
+Route::get('/school/add',[
+
+    'uses' => 'SchoolManagementController@addSchoolForm',
+    'as'     => 'add-school'
+]);
+
+Route::post('/school/add',[
+
+    'uses' => 'SchoolManagementController@schoolSave',
+    'as'     => 'school-save'
+]);
+
+Route::get('/school/list',[
+
+    'uses' => 'SchoolManagementController@schoolList',
+    'as'     => 'school-list'
+]);
+
+Route::get('/school/unpublished/{id}',[
+
+    'uses' => 'SchoolManagementController@SchoolUnpublished',
+    'as'     => 'school-unpublished'
+]);
+
+Route::get('/school/published/{id}',[
+
+    'uses' => 'SchoolManagementController@SchoolPublished',
+    'as'     => 'school-published'
+]);
+
+Route::get('/school/edit/{id}',[
+
+    'uses' => 'SchoolManagementController@schoolEdit',
+    'as'     => 'school-edit'
+]);
+
+Route::post('/school/update',[
+
+    'uses' => 'SchoolManagementController@schoolUpdate',
+    'as'     => 'school-update'
+]);
+
+
+Route::get('/school/delete/{id}',[
+
+    'uses' => 'SchoolManagementController@schoolDelete',
+    'as'     => 'school-delete'
+]);
+
+
+
+
+
+
+
 
 
 
