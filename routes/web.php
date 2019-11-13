@@ -137,6 +137,29 @@ Route::get('/photo-gallery',[
 ]);
 
 
+Route::get('/slide-edit/{id}',[
+
+    'uses' => 'SliderController@slideEdit',
+    'as'     => 'slide-edit'
+]);
+
+
+Route::post('/update-slide',[
+
+    'uses' => 'SliderController@updateSlide',
+    'as'     => 'update-slide'
+]);
+
+Route::get('/slide-delete{id}',[
+
+    'uses' => 'SliderController@slideDelete',
+    'as'     => 'slide-delete'
+]);
+
+
+
+
+
 
 
 

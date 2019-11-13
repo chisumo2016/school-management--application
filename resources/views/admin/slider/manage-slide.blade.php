@@ -4,6 +4,26 @@
     <section class="container-fluid">
         <div class="row content">
             <div class="col-12 pl-0 pr-0">
+
+                @if(Session::get('message'))
+                    <div class="alert alert-warning alert-success fade show" role="alert">
+                        <strong>Message !</strong> {{ Session::get('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
+                @if(Session::get('error_message'))
+                    <div class="alert alert-warning alert-danger fade show" role="alert">
+                        <strong>Error !</strong> {{ Session::get('error_message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
+
                 <div class="form-group">
                     <div class="col-sm-12">
                         <h4 class="text-center font-weight-bold font-italic mt-3">Slide List</h4>
@@ -37,7 +57,9 @@
                                         @else
                                         <a href="{{ route('slide-published',['id'=>$slide->id]) }}"  title="activate" class="btn btn-sm btn-warning fa fa-arrow-alt-circle-down"></a>
                                         @endif
-                                        <a href="" class="btn btn-sm btn-danger fa fa-trash-alt"></a>
+                                        <a href="{{ route('slide-edit',['id'=>$slide->id]) }}" class="btn btn-sm btn-info fa fa-edit"></a>
+                                        <a href="{{ route('slide-delete',['id'=>$slide->id]) }}"
+                                              onclick="return confirm('if you want to delete this item press OK')"    class="btn btn-sm btn-danger fa fa-trash-alt"></a>
                                     </td>
                                 </tr>
                             @endforeach
