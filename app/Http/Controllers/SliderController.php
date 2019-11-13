@@ -46,4 +46,33 @@ class SliderController extends Controller
         return $imageUrl;
     }
 
+    public  function  manageSlider()
+    {
+        $slides = Slide::all();
+        return view('admin.slider.manage-slide',compact('slides'));
+    }
+
+    public function slideUnpublished($id)
+    {
+        $slide = Slide::findOrFail($id);
+        $slide->status = 2;
+        $slide->save();
+
+        return redirect('/manage-slider')->with('error_message','Unpublished successfully');
+    }
+
+    public function slidePublished($id)
+    {
+        $slide = Slide::findOrFail($id);
+        $slide->status = 1;
+        $slide->save();
+
+        return redirect('/manage-slider')->with('message','Published successfully');
+    }
+
+    public function photoGallery()
+    {
+        $slides = Slide::all();
+        return view('admin.slider.photo-gallery',compact('slides'));
+    }
 }

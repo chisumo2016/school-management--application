@@ -28,7 +28,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="gallery.html">Gallery</a>
+                <a class="nav-link" href="{{ route('photo-gallery') }}">Gallery</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -64,7 +64,7 @@
                         <a class="dropdown-item dropdown-toggle" href="#">Slider</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('add-slider') }}" class="dropdown-item">Add Slider</a></li>
-                            <li><a href="#" class="dropdown-item">Manage Slide</a></li>
+                            <li><a href="{{ route('manage-slider') }}" class="dropdown-item">Manage Slide</a></li>
                         </ul>
                     </li>
 

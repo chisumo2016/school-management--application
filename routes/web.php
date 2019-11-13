@@ -112,6 +112,37 @@ Route::post('/upload-slide',[
     'as'     => 'upload-slide'
 ]);
 
+Route::get('/manage-slider',[
+
+    'uses' => 'SliderController@manageSlider',
+    'as'     => 'manage-slider'
+]);
+
+Route::get('/slide-unpublished/{id}',[
+
+    'uses' => 'SliderController@slideUnpublished',
+    'as'     => 'slide-unpublished'
+]);
+
+Route::get('/slide-npublished/{id}',[
+
+    'uses' => 'SliderController@slidePublished',
+    'as'     => 'slide-published'
+]);
+
+Route::get('/photo-gallery',[
+
+    'uses' => 'SliderController@photoGallery',
+    'as'     => 'photo-gallery'
+]);
+
+
+
+
+
+
+
+
 
 
 
