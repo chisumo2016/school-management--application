@@ -18,11 +18,11 @@
 
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <h4 class="text-center font-weight-bold font-italic mt-3">Add Batch Form</h4>
+                        <h4 class="text-center font-weight-bold font-italic mt-3">Batch Edit</h4>
                     </div>
                 </div>
 
-                <form action=" {{ route('batch-save') }}"   method="post" enctype="multipart/form-data">
+                <form action=" {{ route('batch-update') }}"   method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="table-responsive p-1">
                         <table id="" class="table table-striped table-bordered dt-responsive nowrap text-center" style="width: 100%;">
@@ -32,12 +32,12 @@
                                         <label for="batchName" class="col-sm-3 col-form-label text-right">Class Name</label>
                                         <div class="col-sm-9">
 
-                                            <select name="class_id" id="class-id" class=" col-sm-9  form-control @error('class_id') is-invalid @enderror" required autofocus>
+                                            <select name="class_id" id="class-id" class="col-sm-9  form-control @error('class_id') is-invalid @enderror" required autofocus>
                                                 <option value="">Select Class ....</option>
 
                                                 @foreach($classes as $class)
-                                                <option value="{{ $class->id }}">{{$class->class_name  }}</option>
-                                                 @endforeach
+                                                    <option value="{{ $class->id }}" {{ $class->id ==  $batch->class_id ? 'selected'  : ''}}>{{$class->class_name  }}</option>
+                                                @endforeach
                                             </select>
                                             @error('class_id')
                                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -54,7 +54,7 @@
                                         <label for="batchName" class="col-sm-3 col-form-label text-right">Batch Name</label>
                                         <div class="col-sm-9">
 
-                                            <input id="batch_name" type="text" class="col-sm-9 form-control @error('batch_name') is-invalid @enderror" name="batch_name" value="{{ old('batch_name') }}" placeholder="Enter Batch Name" required>
+                                            <input id="batch_name" type="text" class="col-sm-9 form-control @error('batch_name') is-invalid @enderror" name="batch_name" value="{{ $batch->batch_name }}" placeholder="Enter Batch Name" required>
 
                                             @error('batch_name')
                                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -71,7 +71,7 @@
                                         <label for="studentCapacity" class="col-sm-3 col-form-label text-right">Student Capacity </label>
                                         <div class="col-sm-9">
 
-                                            <input id="student_capacity" type="text" class="col-sm-9 form-control @error('student_capacity') is-invalid @enderror" name="batch_name" value="{{ old('student_capacity') }}" placeholder="Enter Batch Name" required>
+                                            <input id="student_capacity" type="text" class="col-sm-9 form-control @error('student_capacity') is-invalid @enderror" name="student_capacity" value="{{ $batch->student_capacity }}" placeholder="Enter Batch Name" required>
 
                                             @error('student_capacity')
                                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -81,9 +81,10 @@
                                     </div>
                                 </td>
                             </tr>
+                            <input type="hidden"  name="batch_id" value="{{ $batch->id }}">
                             <tr>
                                 <td>
-                                    <button class="btn btn-block my-btn-submit">Add Batch</button>
+                                    <button class="btn btn-block my-btn-submit">Update</button>
                                 </td>
                             </tr>
 

@@ -273,6 +273,37 @@ Route::get('/batch/list-by-ajax',[
     'as'     => 'batch-list-by-ajax'
 ]);
 
+Route::get('/batch/unpublished',[
+    'uses' => 'BatchManagementController@batchUnpublished',
+    'as'     => 'batch-unpublished'
+]);
+
+Route::get('/batch/published',[
+    'uses' => 'BatchManagementController@batchPublished',
+    'as'     => 'batch-published'
+]);
+
+Route::get('/batch/delete',[
+    'uses' => 'BatchManagementController@batchDelete',
+    'as'     => 'batch-delete'
+]);
+
+Route::get('/batch/edit/{id}',[
+    'uses' => 'BatchManagementController@batchEdit',
+    'as'     => 'batch-edit'
+]);
+
+Route::post('/batch/update',[
+    'uses' => 'BatchManagementController@batchUpdate',
+    'as'     => 'batch-update'
+]);
+
+
+
+
+
+
+
 
 
 
