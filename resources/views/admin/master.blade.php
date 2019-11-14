@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="{{asset('admin/assets/plugins/data-table/css/fixedHeader.bootstrap4.min.css')}}">
     <!--    Theme Stylesheet-->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+
+    <!--    jQuery-->
+{{--    <script src="{{ asset('admin/assets/js/jquery-3.3.1.slim.min.js') }}"></script>--}}
+    <script src="{{ asset('admin/assets/js/jquery-3.4.1.js') }}"></script>
+
     <!--    Favicon-->
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.png') }}" type="image/x-icon">
 </head>
@@ -39,8 +44,8 @@
 <!--Slider End-->
 
 @include('admin.partials.footer')
-<!--    jQuery-->
-<script src="{{ asset('admin/assets/js/jquery-3.3.1.slim.min.js') }}"></script>
+
+
 <!--    magnific popup-->
 <script src="{{ asset('admin/assets/plugins/magnific-popup/js/jquery.magnific-popup.min.js') }}"></script>
 <!--    Carousel-->

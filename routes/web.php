@@ -250,6 +250,29 @@ Route::get('/class/delete/{id}',[
     'as'     => 'class-delete'
 ]);
 
+//Batch Management
+
+Route::get('/add/batch',[
+    'uses' => 'BatchManagementController@addBatch',
+    'as'     => 'add-batch'
+]);
+
+
+Route::post('/add/batch',[
+    'uses' => 'BatchManagementController@batchSave',
+    'as'     => 'batch-save'
+]);
+
+Route::get('/batch/list',[
+    'uses' => 'BatchManagementController@batchList',
+    'as'     => 'batch-list'
+]);
+
+Route::get('/batch/list-by-ajax',[
+    'uses' => 'BatchManagementController@batchListbyAjax',
+    'as'     => 'batch-list-by-ajax'
+]);
+
 
 
 
