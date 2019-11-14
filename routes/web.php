@@ -208,6 +208,52 @@ Route::get('/school/delete/{id}',[
 ]);
 
 
+//Class Management
+Route::get('/class/add',[
+
+    'uses' => 'ClassManagementController@addClassForm',
+    'as'     => 'add-class'
+]);
+
+Route::post('/class/add',[
+    'uses' => 'ClassManagementController@classSave',
+    'as'     => 'class-save'
+]);
+
+Route::get('/class/list',[
+    'uses' => 'ClassManagementController@classList',
+    'as'     => 'class-list'
+]);
+
+Route::get('/class/unpublished/{id}',[
+    'uses' => 'ClassManagementController@classUnpublished',
+    'as'     => 'class-unpublished'
+]);
+
+Route::get('/class/published/{id}',[
+    'uses' => 'ClassManagementController@classPublished',
+    'as'     => 'class-published'
+]);
+
+Route::get('/class/edit/{id}',[
+    'uses' => 'ClassManagementController@classEdit',
+    'as'     => 'class-edit'
+]);
+
+Route::post('/class/update/',[
+    'uses' => 'ClassManagementController@classUpdate',
+    'as'     => 'class-update'
+]);
+
+Route::get('/class/delete/{id}',[
+    'uses' => 'ClassManagementController@classDelete',
+    'as'     => 'class-delete'
+]);
+
+
+
+
+
 
 
 
